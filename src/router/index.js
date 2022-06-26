@@ -5,9 +5,23 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('@/views/HomeView.vue')
-    },
+      name: 'HomePage',
+      redirect: { name: 'LandingPage' },
+      components: {
+        default: () => import('@/views/HomeView.vue')
+      },
+      children: [
+        // Landing Page
+        {
+          path: 'home',
+          alias: 'index',
+          name: 'LandingPage',
+          components: {
+            default: () => import('@/views/LandingPage.vue')
+          },
+        }
+      ]
+    }
   ]
 })
 

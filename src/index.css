@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .horizontal__scroll-outer {
+    transform: rotate(-90deg) translateX(-100vh);
+    /* scrollbar-width: none; */
+  }
+
+  .horizontal__scroll-outer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .horizontal__scroll-inner {
+    transform: rotate(90deg) translateY(-100vh);
+  }
+}
+
+@layer base {
+  /* overflow-hidden */
+  body {
+    @apply text-white overflow-hidden
+  }
+}
