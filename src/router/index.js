@@ -19,6 +19,13 @@ const router = createRouter({
           components: {
             default: () => import('@/views/LandingPage.vue')
           },
+        },
+        {
+          path: 'my-story',
+          name: 'MyStory',
+          components: {
+            default: () => import('@/views/MyStory.vue')
+          }
         }
       ]
     }

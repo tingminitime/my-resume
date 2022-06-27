@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 min-h-screen bg-myMainBg">
+  <div class="min-h-screen bg-myMainBg">
     <router-view></router-view>
   </div>
 </template>

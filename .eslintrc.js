@@ -55,8 +55,7 @@ module.exports = {
           'ring\\-my(.*)',
           'aspect\\-(.*)',
           'line-clamp\\-[1-9]',
-          'load',
-          'cover',
+          'horizon\\_(.*)'
         ],
       }
     ],
