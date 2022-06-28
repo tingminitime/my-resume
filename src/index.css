@@ -20,6 +20,6 @@
 @layer base {
   /* overflow-hidden */
   body {
-    @apply text-white overflow-hidden overscroll-none
+    @apply text-white overflow-y-scroll overflow-x-hidden overscroll-none
   }
 }

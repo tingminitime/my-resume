@@ -3,43 +3,63 @@
     <h2 class="fixed top-0 left-0 py-4 px-6">
       My Story
     </h2>
+    <ul class="fixed top-12 left-1/2 z-40 -translate-x-1/2">
+      <li>
+        <a href="javascript:;">關於我</a>
+      </li>
+    </ul>
     <transition
       appear
       @enter="enterHandler"
     >
       <div
-        id="horizon_container"
-        ref="horizonContainer"
-        class="flex relative z-20 flex-nowrap h-screen"
+        ref="slideContainer"
+        class="overflow-x-hidden slide_container"
       >
         <section
-          ref="horizonPanel1"
-          class="flex basis-[100vw] grow shrink-0 justify-center items-center border-r border-white/25 horizon_panel horizon_panel1"
+          class="flex relative z-20 flex-nowrap w-screen h-screen horizon_section"
+          @wheel="slideAni"
         >
-          <div>
+          <div class="flex basis-[100vw] grow-0 shrink-0 justify-center items-center w-screen h-screen border-r border-white/25 horizon_panel">
             <p class="text-4xl">
               Slide 1
             </p>
           </div>
-        </section>
-        <section class="flex basis-[100vw] grow shrink-0 justify-center items-center border-r border-white/25 horizon_panel horizon_panel2">
-          <div>
+          <div class="flex basis-[100vw] grow-0 shrink-0 justify-center items-center w-screen h-screen border-r border-white/25 horizon_panel">
             <p class="text-4xl">
               Slide 2
+            </p>
+          </div>
+          <div class="flex basis-[100vw] grow-0 shrink-0 justify-center items-center w-screen h-screen border-r border-white/25 horizon_panel">
+            <p class="text-4xl">
+              Slide 3
+            </p>
+          </div>
+          <div class="flex basis-[100vw] grow-0 shrink-0 justify-center items-center w-screen h-screen border-r border-white/25 horizon_panel">
+            <p class="text-4xl">
+              Slide 4
             </p>
           </div>
         </section>
       </div>
     </transition>
+    <div class="fixed top-1/2 left-8 z-20 -translate-y-1/2">
+      <button type="button">
+        prev
+      </button>
+    </div>
+    <div class="fixed top-1/2 right-8 z-20 -translate-y-1/2">
+      <button
+        type="button"
+        @click="nextHandler"
+      >
+        next
+      </button>
+    </div>
     <div class="fixed bottom-6 left-1/2 z-20 w-3/4 h-1 bg-white/25 -translate-x-1/2 horizon_progress">
       <div class="absolute top-0 left-0 z-30 w-full h-1 bg-white horizon_progress--percent">
       </div>
     </div>
-    <!-- <div
-      v-for="i in 3"
-      :key="i"
-      class="absolute top-0 left-0 w-24 h-24 bg-slate-400/25 bg_block"
-    ></div> -->
   </div>
 </template>
 
@@ -50,6 +70,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const useResize = (onResize) => {
+  ww.value = window.innerWidth
+  wh.value = window.innerHeight
   onMounted(() => {
     window.addEventListener('resize', onResize)
   })
@@ -58,41 +80,59 @@ const useResize = (onResize) => {
   })
 }
 
-const width = ref(null)
-const height = ref(null)
+const ww = ref(null)
+const wh = ref(null)
 useResize(() => {
-  width.value = window.innerWidth
-  height.value = window.innerHeight
-  
+  ww.value = window.innerWidth
+  wh.value = window.innerHeight
 })
 
-const horizonContainer = ref(null)
-const horizonPanel1 = ref(null)
-const enterHandler = (el) => {
-  const panels = gsap.utils.toArray('.horizon_panel')
+const enterHandler = (el) => {}
 
-  gsap.to(panels, {
-    xPercent: -100 * (panels.length - 1),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '#horizon_container',
-      pin: true,
-      scrub: 1,
-      snap: {
-        snapTo: 1 / (panels.length - 1),
-        duration: 0.3,
-        delay: 0.3
+const slideContainer = ref(null)
+
+function nextHandler() {
+  if ((window.scrollY + window.innerHeight) < document.documentElement.scrollHeight) {
+    window.scrollTo({
+      top: (window.scrollY + window.innerWidth),
+      behavior: 'smooth'
+    })
+  }
+}
+
+function gaspInit() {
+  // horizontal scroll
+  const horizonSection = gsap.utils.toArray('.horizon_section')
+  horizonSection.forEach(section => {
+    const horizontalPanels = Array.from(section.querySelectorAll('.horizon_panel'))
+
+    gsap.to(section, {
+      xPercent: -100 * (horizontalPanels.length - 1),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: section,
+        pin: true,
+        scrub: 1,
+        snap: {
+          snapTo: 1 / (horizontalPanels.length - 1),
+          duration: 0.2,
+          delay: 0.2,
+          inertia: false,
+        },
+        start: 'top top',
+        end: () => '+=' + (section.scrollWidth - section.clientWidth),
       },
-      end: () => '+=' + horizonContainer.value.offsetWidth
-    },
+    })
   })
 
+  // progress
   gsap.from('.horizon_progress--percent', {
     scrollTrigger: {
-      trigger: horizonPanel1.value,
+      trigger: slideContainer.value,
       scrub: 1,
       start: 'top top',
-      end: () => '+=' + horizonContainer.value.offsetWidth
+      // end: () => '+=' + slideContainer.value.offsetWidth
+      end: () => '+=' + (slideContainer.value.scrollHeight - window.innerHeight)
     },
     scaleX: 0,
     transformOrigin: 'left center',
@@ -101,8 +141,13 @@ const enterHandler = (el) => {
 }
 
 onMounted(() => {
-  width.value = window.innerWidth
-  height.value = window.innerHeight
+  // ww.value = window.innerWidth
+  // wh.value = window.innerHeight
+  gaspInit()
+})
+
+onBeforeUnmount(() => {
+  // window.removeEventListener('wheel', slideAni)
 })
 
 </script>
