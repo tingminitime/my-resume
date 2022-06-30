@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    padding: 0 !important;
+  }
+  html, body {
+    @apply bg-myMainBg
+  }
+  body {
+    @apply text-white overflow-y-scroll overflow-x-hidden overscroll-none
+  }
+}
+
+@layer components {
+  .horizon_panel {
+    @apply w-screen grow-0 shrink-0 w-screen h-screen before:absolute before:right-0 before:w-px before:h-[65vw] before:bg-white/25 before:top-1/2 before:-translate-y-1/2
+  }
+  .scroll_content-softedge {
+    @apply before:top-0 before:left-0 before:z-10 before:absolute before:bg-white before:shadow-[0_8px_16px_8px_rgba(40,44,52)] before:-translate-y-full before:w-full before:h-8 after:bottom-0 after:left-0 after:z-10 after:absolute after:bg-white after:shadow-[0_-8px_16px_8px_rgba(40,44,52)] after:translate-y-full after:w-full after:h-8
+  }
+}
+
 @layer utilities {
   .horizontal__scroll-outer {
     transform: rotate(-90deg) translateX(-100vh);
@@ -14,12 +35,5 @@
 
   .horizontal__scroll-inner {
     transform: rotate(90deg) translateY(-100vh);
-  }
-}
-
-@layer base {
-  /* overflow-hidden */
-  body {
-    @apply text-white overflow-y-scroll overflow-x-hidden overscroll-none
   }
 }

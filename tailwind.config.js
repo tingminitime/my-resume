@@ -10,6 +10,8 @@ module.exports = {
     extend: {
       colors: {
         'myMainBg': '#282c34',
+        'myLightGreen': '#6FFFE9',
+        'myLightYellow': '#FFFD82'
       },
       fontFamily: {
         'sans': ['Inter', 'Noto Sans TC', 'Helvetica Neue', ...defaultTheme.fontFamily.sans],
@@ -19,5 +21,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    require('tailwind-scrollbar-hide'),
   ],
 }

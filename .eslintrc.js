@@ -49,13 +49,17 @@ module.exports = {
           'form\\-(input|textarea|select|multiselect|checkbox|radio)',
           'material-icons',
           'material-icons-outlined',
+          'material-symbols-outlined',
           'text\\-my(.*)',
           'bg\\-my(.*)',
           'border\\-(.*)?my(.*)',
           'ring\\-my(.*)',
           'aspect\\-(.*)',
           'line-clamp\\-[1-9]',
-          'horizon\\_(.*)'
+          'horizon\\_(.*)',
+          'panel\\_(.*)',
+          'slides\\_(.*)',
+          'wheel'
         ],
       }
     ],
