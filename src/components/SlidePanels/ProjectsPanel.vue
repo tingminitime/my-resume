@@ -5,7 +5,7 @@
   >
     <div
       ref="panelProjectsWrapper"
-      class="relative py-16 px-8 h-screen max-h-full panel_projects_wrapper scroll_content-softedge"
+      class="relative py-16 px-8 h-screen max-h-full panel_projects_wrapper scroll__content-softedge"
     >
       <section class="pb-24 mb-20 min-h-[calc(100vh-128px-96px)] border-b-8 border-white/25 panel_projects_section">
         <div class="grid grid-cols-2 gap-8 mb-12">
@@ -331,7 +331,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Scrollbar from 'smooth-scrollbar'
@@ -391,10 +391,6 @@ onMounted(() => {
     animation: 'scale-subtle',
   })
 })
-
-onBeforeUnmount(() => {
-})
-
 
 </script>
 
