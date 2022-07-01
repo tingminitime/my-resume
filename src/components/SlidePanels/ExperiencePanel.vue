@@ -62,7 +62,7 @@
             <span class="text-sm"># Skills : Vue 2 / Bootstrap 3 / ESLint / axios / FullCalendar / Moment.js / Youtube Iframe API</span>
           </div>
         </li>
-        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline--last">
+        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline">
           <div class="mb-4">
             <div class="flex justify-between items-end mb-2">
               <h2 class="text-2xl font-semibold">
@@ -91,6 +91,48 @@
           <div class="px-1">
             <span class="text-sm"># Skills : HTML / CSS / Sass / JavaScript / Vue / Git</span>
           </div>
+        </li>
+        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline">
+          <div class="mb-4">
+            <div class="flex justify-between items-end mb-2">
+              <h2 class="text-2xl font-semibold">
+                美編人員 / 平面設計
+              </h2>
+              <span class="tracking-wide -skew-x-6">2018/01 - 2018/06</span>
+            </div>
+            <h3 class="text-blue-900">
+              廷媛設計有限公司
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-1 pr-2 pl-6 mb-4 list-disc list-outside">
+            <li>
+              <span>負責長榮大學文宣品平面設計及編排。</span>
+            </li>
+          </ul>
+          <div class="px-1">
+            <span class="text-sm"># Skills : Adobe Illustrator / Adobe Photoshop / Adobe InDesign</span>
+          </div>
+        </li>
+        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline--last">
+          <div class="mb-4">
+            <div class="flex justify-between items-end mb-2">
+              <h2 class="text-2xl font-semibold">
+                特別助理兼管家
+              </h2>
+              <span class="tracking-wide -skew-x-6">2017/03 - 2021/09</span>
+            </div>
+            <h3 class="text-blue-900">
+              智富門資產管理顧問有限公司
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-1 pr-2 pl-6 mb-4 list-disc list-outside">
+            <li>
+              <span>特別助理 : 與客戶介紹案源，協助主管行政文書後勤工作。</span>
+            </li>
+            <li>
+              <span>管家 : 介紹居住環境設備、協助租約簽約、解決客戶生活居住上的問題以及進退房的居家環境清潔。</span>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>

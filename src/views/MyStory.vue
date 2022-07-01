@@ -77,31 +77,31 @@
         >
           <div
             id="panel_home"
-            class="relative horizon_panel panel_home"
+            class="relative horizon__panel panel_home"
           >
             <HomePanel></HomePanel>
           </div>
           <div
             id="panel_intro"
-            class="relative horizon_panel panel_intro"
+            class="relative horizon__panel panel_intro"
           >
             <IntroPanel></IntroPanel>
           </div>
           <div
             id="panel_skills"
-            class="relative horizon_panel panel_about"
+            class="relative horizon__panel panel_about"
           >
             <SkillsPanel></SkillsPanel>
           </div>
           <div
             id="panel_projects"
-            class="relative horizon_panel panel_projects"
+            class="relative horizon__panel panel_projects"
           >
             <ProjectsPanel></ProjectsPanel>
           </div>
           <div
             id="panel_experience"
-            class="relative horizon_panel panel_experience"
+            class="relative horizon__panel panel_experience"
           >
             <ExperiencePanel></ExperiencePanel>
           </div>
@@ -144,12 +144,12 @@ const accPanelsWidth = ref(0)
 function gaspInit(el) {
   // horizontal scroll
   const horizonSection = gsap.utils.toArray('.horizon_section')
-  const horizontalPanels = gsap.utils.toArray('.horizon_panel')
+  const horizontalPanels = gsap.utils.toArray('.horizon__panel')
   horizontalPanels.forEach((panel) => {
     accPanelsWidth.value += panel.offsetWidth
   })
   horizonSection.forEach(section => {
-    const horizontalPanels = Array.from(section.querySelectorAll('.horizon_panel'))
+    const horizontalPanels = Array.from(section.querySelectorAll('.horizon__panel'))
 
     gsap.to(section, {
       xPercent: -100 * (horizontalPanels.length - 1),

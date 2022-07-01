@@ -152,8 +152,8 @@ function gaspInit() {
     stagger: 0.2,
     ease: 'power3',
     scrollTrigger: {
-      trigger: panelHome_textAni,
-      toggleActions: 'play none restart reset'
+      trigger: panelHome.value,
+      toggleActions: 'play reset restart reset'
     }
   })
 
@@ -208,7 +208,7 @@ function gaspInit() {
     ease: 'power3',
     scrollTrigger: {
       trigger: panelHome.value,
-      toggleActions: 'play none restart reset'
+      toggleActions: 'play pause restart reset',
     }
   })
 }

@@ -15,8 +15,8 @@
 }
 
 @layer components {
-  .horizon_panel {
-    @apply w-screen grow-0 shrink-0 w-screen h-screen before:absolute before:right-0 before:w-px before:h-[65vw] before:bg-white/25 before:top-1/2 before:-translate-y-1/2
+  .horizon__panel {
+    @apply grow-0 shrink-0 w-screen h-screen before:absolute before:right-0 before:w-px before:h-[75vh] before:bg-white/25 before:top-1/2 before:-translate-y-1/2
   }
   .scroll__content-softedge {
     @apply before:top-0 before:left-0 before:z-10 before:absolute before:bg-white before:shadow-[0_8px_16px_4px_rgba(40,44,52)] before:-translate-y-full before:w-full before:h-8 after:bottom-0 after:left-0 after:z-10 after:absolute after:bg-white after:shadow-[0_-8px_16px_4px_rgba(40,44,52)] after:translate-y-full after:w-full after:h-8
