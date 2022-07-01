@@ -1,7 +1,7 @@
 <template>
   <div
     ref="panelIntro"
-    class="container flex relative flex-col justify-between px-6 pt-20 pb-16 mx-auto h-full md:px-12 md:pt-32 md:pb-24"
+    class="container flex relative flex-col justify-between pt-20 pr-2 pb-16 pl-6 mx-auto h-full md:px-12 md:pt-32 md:pb-24"
   >
     <div
       ref="panelIntroWrapper"

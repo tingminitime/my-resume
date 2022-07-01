@@ -43,42 +43,57 @@
       </div>
     </div>
     <div class="flex flex-col gap-8 justify-between pb-4 md:flex-row md:gap-0 md:pb-8">
-      <div class="flex flex-col gap-2 tracking-wider">
-        <div class="text-lg">
-          <p>
-            Front-End Developer
-          </p>
+      <!-- Personal Information -->
+      <div class="relative">
+        <!-- Info mask animation -->
+        <div
+          ref="panelHome_infoMask"
+          class="absolute top-0 left-1/2 z-10 w-full h-full bg-white scale-y-110 scale-x-0 -translate-x-1/2 origin-right md:w-[125%]"
+          :class="[isInfoMaskAnimationFinish ? 'opacity-0' : 'opacity-100']"
+        >
         </div>
-        <div class="font-light">
-          <span>Email : </span>
-          <button
-            ref="contactEmail"
-            type="button"
-            data-info="e0610k@gmail.com"
-            class="hover:tracking-widest transition-all"
-            @click="copyInfoHandler"
-          >
-            e0610k@gmail.com
-          </button>
-        </div>
-        <div class="font-light">
-          <span>Phone : </span>
-          <button
-            ref="contactPhone"
-            type="button"
-            data-info="0988247111"
-            class="hover:tracking-widest transition-all"
-            @click="copyInfoHandler"
-          >
-            0988-247-111
-          </button>
-        </div>
-        <div class="font-light">
-          <p class="">
-            期望工作地點 : 台北市、新北市、高雄市
-          </p>
+        <div
+          ref="panelHome_info"
+          class="flex flex-col gap-2 tracking-wider"
+          :class="[isInfoMaskAnimationCover ? 'opacity-100' : 'opacity-0']"
+        >
+          <div class="text-lg">
+            <p>
+              Front-End Developer
+            </p>
+          </div>
+          <div class="font-light">
+            <span>Email : </span>
+            <button
+              ref="contactEmail"
+              type="button"
+              data-info="e0610k@gmail.com"
+              class="hover:tracking-widest transition-all"
+              @click="copyInfoHandler"
+            >
+              e0610k@gmail.com
+            </button>
+          </div>
+          <div class="font-light">
+            <span>Phone : </span>
+            <button
+              ref="contactPhone"
+              type="button"
+              data-info="0988247111"
+              class="hover:tracking-widest transition-all"
+              @click="copyInfoHandler"
+            >
+              0988-247-111
+            </button>
+          </div>
+          <div class="font-light">
+            <p class="">
+              期望工作地點 : 台北市、新北市、高雄市
+            </p>
+          </div>
         </div>
       </div>
+      <!-- Outer link -->
       <div class="mr-8 lg:mr-16">
         <ul class="flex flex-row gap-4 md:flex-col">
           <li class="transition-transform hover:scale-110">
@@ -130,9 +145,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useSlidesStore } from '@/stores'
+import { onMounted, onUpdated, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import tippy from 'tippy.js'
@@ -140,13 +153,15 @@ import 'tippy.js/dist/tippy.css'
 import 'tippy.js/animations/scale-subtle.css'
 import 'tippy.js/themes/light.css'
 
-const store = useSlidesStore()
-const { slidesMaskStatus } = storeToRefs(store)
 gsap.registerPlugin(ScrollTrigger)
 
 const panelHome = ref(null)
 const panelHome_avatarMask = ref(null)
 const panelHome_avatar = ref(null)
+const panelHome_infoMask = ref(null)
+const panelHome_info = ref(null)
+const isInfoMaskAnimationCover = ref(false)
+const isInfoMaskAnimationFinish = ref(false)
 function gaspInit() {
   // Say Hi animation
   const panelHome_textAni = panelHome.value.querySelectorAll('.panel_home_text-ani')
@@ -201,6 +216,42 @@ function gaspInit() {
         opacity: 1,
       }
     }
+  })
+
+  // Info mask animation
+  const infoMaskAniTimeline = gsap.timeline({
+    defaults: {
+      duration: 0.6,
+      ease: 'power3',
+    },
+  })
+    .to(panelHome_infoMask.value, {
+      delay: 1.75,
+      transformOrigin: 'left',
+      scaleX: 1,
+      onComplete() {
+        isInfoMaskAnimationCover.value = true
+      },
+    })
+    .to(panelHome_infoMask.value, {
+      transformOrigin: 'right',
+      scaleX: 0,
+      onComplete() {
+        console.log('isInfoMaskAnimationFinish')
+        isInfoMaskAnimationFinish.value = true
+      }
+    })
+
+  // Info animation
+  gsap.from(panelHome_info.value, {
+    duration: 1,
+    delay: 1,
+    xPercent: -300,
+    ease: 'power3',
+    scrollTrigger: {
+      trigger: panelHome.value,
+      toggleActions: 'play reset restart reset',
+    },
   })
 
   // Outer link animation
@@ -298,10 +349,5 @@ onMounted(() => {
   animation-name: gestureAni
   animation-iteration-count: infinite
   animation-duration: 1s
-
-// border: 1px solid #fff
-//     border-radius: 50%
-//     width: 100%
-//     height: 150%
 
 </style>
