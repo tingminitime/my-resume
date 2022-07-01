@@ -8,7 +8,7 @@
       class="relative py-16 pr-4 pl-0 h-screen max-h-full md:px-8 panel_projects_wrapper scroll__content-softedge"
     >
       <section class="pb-24 mb-12 min-h-[calc(100vh-128px-96px)] border-b-8 border-white/25 md:mb-20 panel_projects_section">
-        <div class="flex flex-col mb-6 md:grid md:grid-cols-2 md:gap-8 md:mb-12">
+        <div class="flex flex-col gap-4 mb-6 md:flex-row md:gap-8 md:mb-12">
           <div class="group overflow-hidden relative top-0 left-0 w-full max-w-xl rounded-2xl">
             <a
               href="https://kirukiru.rocket-coding.com/index.html#/home"
@@ -244,7 +244,7 @@
         </div>
       </section>
       <section class="pb-24 mb-12 min-h-[calc(100vh-128px-96px)] md:mb-20 panel_projects_section">
-        <div class="flex flex-col mb-6 md:grid md:grid-cols-2 md:gap-8 md:mb-12">
+        <div class="flex flex-col gap-4 mb-6 md:flex-row md:gap-8 md:mb-12">
           <div class="group overflow-hidden relative top-0 left-0 w-full max-w-xl rounded-2xl">
             <a
               href="https://tingminitime.github.io/KaohsiungBusRoute/"
