@@ -1,7 +1,93 @@
 <template>
   <div class="relative w-full h-full">
+    <!-- Mask -->
+    <div
+      v-show="openMobileMenu"
+      class="fixed inset-0 z-40 bg-black/75 backdrop-blur-sm"
+    >
+    </div>
+    <!-- Mobile menu button -->
+    <div class="block fixed top-0 left-0 z-50 py-4 px-6 md:hidden">
+      <button
+        type="button"
+        class="block"
+        @click="toggleMenu"
+      >
+        <span
+          v-show="!openMobileMenu"
+          class="text-3xl align-middle material-symbols-outlined"
+        >
+          menu
+        </span>
+        <span
+          v-show="openMobileMenu"
+          class="text-3xl align-middle material-symbols-outlined"
+        >
+          close
+        </span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div
+      class="block fixed z-40 w-3/4 h-screen bg-black/90 transition-transform duration-200 md:hidden"
+      :class="[openMobileMenu ? 'translate-x-0' : '-translate-x-full']"
+    >
+      <ul class="flex flex-col gap-12 justify-between pt-24 pl-6 md:hidden md:gap-12">
+        <li>
+          <button
+            type="button"
+            class="block transition-all"
+            :class="[currentNavId === panelHome ? 'text-white' : 'text-white/50']"
+            @click="navHandler(panelHome)"
+          >
+            Home
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="block transition-all"
+            :class="[currentNavId === panelIntro ? 'text-white' : 'text-white/50']"
+            @click="navHandler(panelIntro)"
+          >
+            Introduction
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="block transition-all"
+            :class="[currentNavId === panelSkills ? 'text-white' : 'text-white/50']"
+            @click="navHandler(panelSkills)"
+          >
+            Skills
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="block transition-all"
+            :class="[currentNavId === panelProjects ? 'text-white' : 'text-white/50']"
+            @click="navHandler(panelProjects)"
+          >
+            Projects
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="block transition-all"
+            :class="[currentNavId === panelExperience ? 'text-white' : 'text-white/50']"
+            @click="navHandler(panelExperience)"
+          >
+            Experience
+          </button>
+        </li>
+      </ul>
+    </div>
+    <!-- Desktop menu -->
     <div class="fixed top-12 left-1/2 z-40 -translate-x-1/2">
-      <ul class="flex gap-8 justify-between md:gap-12">
+      <ul class="hidden gap-8 justify-between md:flex md:gap-12">
         <li>
           <button
             :data-navbar="panelHome"
@@ -58,9 +144,10 @@
           </button>
         </li>
       </ul>
+      <!-- Desktop menu bar -->
       <div
         ref="navSelectBar"
-        class="absolute -bottom-1 left-0 h-[2px] bg-white transition-all duration-300"
+        class="hidden absolute -bottom-1 left-0 z-50 h-[2px] bg-white transition-all duration-300 md:block"
         :class="[ navSelectBarReady ? 'opacity-100' : 'opacity-0' ]"
       ></div>
     </div>
@@ -73,7 +160,7 @@
         class="overflow-x-hidden slides_container"
       >
         <section
-          class="flex relative z-20 flex-nowrap w-screen h-screen horizon_section"
+          class="flex relative z-20 flex-col flex-wrap w-screen h-screen md:flex-row md:flex-nowrap horizon_section"
         >
           <div
             id="panel_home"
@@ -213,22 +300,34 @@ const enterHandler = (el) => {
   gaspInit(el)
 }
 
+// --- Menu controller ---
 const navSelectBar = ref(null)
+const navSelectBarReady = ref(false)
+const openMobileMenu = ref(false)
+
+// Click nav button and scroll to target
 function navHandler(domId) {
   const target = slideContainer.value.querySelector(`#${domId}`)
-  console.log(target.offsetLeft)
   window.scrollTo({
     top: target.offsetLeft + 1,
   })
 }
 
-const navSelectBarReady = ref(false)
+// Click nav button
 function navBarHandler(currentNavId) {
   const targetNav = document.querySelector(`[data-navbar=${currentNavId}]`)
   navSelectBar.value.style.width = targetNav.getBoundingClientRect().width + 'px'
   navSelectBar.value.style.left = targetNav.offsetLeft + 'px'
   navSelectBarReady.value = true
+  openMobileMenu.value = false
 }
+
+// Click mobile menu button
+function toggleMenu() {
+  openMobileMenu.value = !openMobileMenu.value
+}
+// --- Menu controller ---
+
 
 const useResize = (onResize) => {
   ww.value = window.innerWidth

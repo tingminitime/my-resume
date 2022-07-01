@@ -59,7 +59,8 @@ module.exports = {
           'horizon\\_(.*)',
           'panel\\_(.*)',
           'slides\\_(.*)',
-          'wheel'
+          'wheel',
+          'gesture'
         ],
       }
     ],

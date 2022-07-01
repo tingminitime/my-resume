@@ -1,26 +1,31 @@
 <template>
   <div
     ref="panelHome"
-    class="container flex relative flex-col justify-between px-8 pt-32 pb-24 mx-auto h-full md:px-12"
+    class="container flex relative flex-col justify-between px-6 pt-20 pb-16 mx-auto h-full md:px-12 md:pt-32 md:pb-24"
   >
     <!-- Wheel hint -->
-    <div class="flex absolute top-1/2 left-1/2 flex-col justify-center items-center -translate-x-1/2 -translate-y-1/2 wheel">
+    <div class="hidden absolute top-1/2 left-1/2 flex-col justify-center items-center -translate-x-1/2 -translate-y-1/2 md:flex wheel">
       <span class="mt-2 animate-bounce material-symbols-outlined">
         expand_more
       </span>
     </div>
+    <!-- Mobile hint -->
+    <div class="block absolute top-1/2 left-1/2 w-6 h-12 rounded-full border border-white/25 -translate-x-1/2 translate-y-[calc(-50%-12px)] md:hidden">
+      <div class="w-6 h-6 bg-white rounded-full gesture"></div>
+    </div>
+    <!-- --- -->
     <div class="flex justify-between items-center select-none">
       <!-- Say Hi -->
-      <div class="flex flex-col gap-6">
-        <p class="text-6xl font-bold panel_home_text-ani">
+      <div class="flex flex-col gap-4 md:gap-6">
+        <p class="text-5xl font-bold md:text-6xl panel_home_text-ani">
           HELLO
         </p>
-        <h2 class="text-6xl font-bold panel_home_text-ani">
+        <h2 class="text-4xl font-bold md:text-6xl panel_home_text-ani">
           I'm Tim .
         </h2>
       </div>
       <!-- Avatar -->
-      <div class="relative mr-8 w-48 h-48 lg:mr-16">
+      <div class="relative mr-0 w-32 md:w-48 md:h-48 lg:mr-16">
         <div
           ref="panelHome_avatarMask"
           class="absolute top-0 left-0 z-10 w-full h-full rounded-full shadow-[inset_0_0_0_0px_rgba(255,255,255)] scale-0"
@@ -37,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-between pb-4 md:pb-8">
+    <div class="flex flex-col gap-8 justify-between pb-4 md:flex-row md:gap-0 md:pb-8">
       <div class="flex flex-col gap-2 tracking-wider">
         <div class="text-lg">
           <p>
@@ -75,7 +80,7 @@
         </div>
       </div>
       <div class="mr-8 lg:mr-16">
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-row gap-4 md:flex-col">
           <li class="transition-transform hover:scale-110">
             <a
               ref="githubLink"
@@ -278,5 +283,25 @@ onMounted(() => {
     top: 4px
     background-color: #fff
     position: absolute
+
+@keyframes gestureAni
+  0%
+    opacity: 0
+    transform: translate(-1px, 24px)
+  80%
+    opacity: 1
+  100%
+    opacity: 0
+    transform: translate(-1px, 0px)
+
+.gesture
+  animation-name: gestureAni
+  animation-iteration-count: infinite
+  animation-duration: 1s
+
+// border: 1px solid #fff
+//     border-radius: 50%
+//     width: 100%
+//     height: 150%
 
 </style>

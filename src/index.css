@@ -33,6 +33,9 @@
   .experience__timeline__ball {
     @apply after:w-4 after:h-4 after:rounded-full after:bg-myLightGreen after:absolute before:z-20 after:-left-8 after:top-1/2 after:-translate-y-1/2 after:-translate-x-[calc(50%-1px)]
   }
+  .experience__ulTimeline {
+    @apply before:absolute before:top-1/2 before:-left-8 before:z-10 before:w-[2px] before:h-[calc(100%+128px)] before:bg-myLightGreen/50 before:-translate-y-1/2
+  }
 }
 
 @layer utilities {

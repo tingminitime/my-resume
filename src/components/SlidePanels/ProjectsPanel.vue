@@ -1,14 +1,14 @@
 <template>
   <div
     ref="panelProjects"
-    class="container flex relative flex-col justify-start px-8 pt-32 pb-24 mx-auto h-full md:px-12"
+    class="container flex relative flex-col justify-start pt-20 pr-2 pb-16 pl-6 mx-auto h-full md:px-12 md:pt-32 md:pb-24"
   >
     <div
       ref="panelProjectsWrapper"
-      class="relative py-16 px-8 h-screen max-h-full panel_projects_wrapper scroll__content-softedge"
+      class="relative py-16 pr-4 pl-0 h-screen max-h-full md:px-8 panel_projects_wrapper scroll__content-softedge"
     >
-      <section class="pb-24 mb-20 min-h-[calc(100vh-128px-96px)] border-b-8 border-white/25 panel_projects_section">
-        <div class="grid grid-cols-2 gap-8 mb-12">
+      <section class="pb-24 mb-12 min-h-[calc(100vh-128px-96px)] border-b-8 border-white/25 md:mb-20 panel_projects_section">
+        <div class="flex flex-col mb-6 md:grid md:grid-cols-2 md:gap-8 md:mb-12">
           <div class="group overflow-hidden relative top-0 left-0 w-full max-w-xl rounded-2xl">
             <a
               href="https://kirukiru.rocket-coding.com/index.html#/home"
@@ -128,22 +128,22 @@
           </p>
         </div>
       </section>
-      <section class="pb-24 mb-20 min-h-[calc(100vh-128px-96px)] border-b-8 border-white/25 panel_projects_section">
-        <div class="grid grid-cols-2 gap-8 mb-12">
-          <div class="flex flex-col justify-between py-4">
-            <div>
-              <h2 class="py-2 text-4xl font-bold tracking-wider text-right md:text-5xl">
+      <section class="pb-24 mb-12 min-h-[calc(100vh-128px-96px)] border-b-8 border-white/25 md:mb-20 panel_projects_section">
+        <div class="flex flex-col mb-6 md:grid md:grid-cols-2 md:gap-8 md:mb-12">
+          <div class="flex flex-col order-2 justify-between py-4 md:order-1">
+            <div class="md:text-right">
+              <h2 class="py-2 text-4xl font-bold tracking-wider md:text-5xl">
                 探索。福爾摩沙
               </h2>
-              <h3 class="px-2 mb-4 text-xl tracking-wider text-right">
+              <h3 class="px-2 mb-4 text-xl tracking-wider">
                 台灣旅遊資訊網
               </h3>
-              <p class="py-4 text-base font-light tracking-wider text-right border-t border-white/25">
+              <p class="py-4 text-base font-light tracking-wider border-t border-white/25">
                 搜尋台灣景點、美食、住宿、觀光資訊。
               </p>
             </div>
             <div class="">
-              <div class="flex flex-col gap-1 items-end mb-4">
+              <div class="flex flex-col gap-1 mb-4 md:items-end">
                 <a
                   ref="panelProjects_formosaLink"
                   href="https://tingminitime.github.io/travel-formosa"
@@ -167,7 +167,7 @@
                   alt="github icon"
                 ><span class="tracking-widest">GitHub</span></a>
               </div>
-              <div class="flex gap-4 justify-end items-center text-sm font-light tracking-wider">
+              <div class="flex gap-4 items-center text-sm font-light tracking-wider md:justify-end">
                 <a
                   href="https://2021.thef2e.com/"
                   target="_blank"
@@ -181,7 +181,7 @@
               </div>
             </div>
           </div>
-          <div class="group overflow-hidden relative top-0 left-0 w-full max-w-xl rounded-2xl">
+          <div class="group overflow-hidden relative top-0 left-0 order-1 w-full max-w-xl rounded-2xl md:order-2">
             <a
               href="https://kirukiru.rocket-coding.com/index.html#/home"
               target="_blank"
@@ -243,8 +243,8 @@
           </p>
         </div>
       </section>
-      <section class="pb-24 mb-20 min-h-[calc(100vh-128px-96px)] panel_projects_section">
-        <div class="grid grid-cols-2 gap-8 mb-12">
+      <section class="pb-24 mb-12 min-h-[calc(100vh-128px-96px)] md:mb-20 panel_projects_section">
+        <div class="flex flex-col mb-6 md:grid md:grid-cols-2 md:gap-8 md:mb-12">
           <div class="group overflow-hidden relative top-0 left-0 w-full max-w-xl rounded-2xl">
             <a
               href="https://tingminitime.github.io/KaohsiungBusRoute/"
@@ -296,7 +296,7 @@
               </div>
               <div class="flex gap-4 items-center text-sm font-light tracking-wider">
                 <a
-                  href="https://rocketcamp.kktix.cc/events/5189db66-copy-4"
+                  href="https://github.com/tingminitime/KaohsiungBusRoute"
                   target="_blank"
                   class="text-white/75 hover:text-white"
                 ># 練習作品</a>

@@ -1,24 +1,25 @@
 <template>
   <div
     ref="panelIntro"
-    class="container flex relative flex-col justify-between px-8 pt-32 pb-24 mx-auto h-full md:px-12"
+    class="container flex relative flex-col justify-between px-6 pt-20 pb-16 mx-auto h-full md:px-12 md:pt-32 md:pb-24"
   >
     <div
       ref="panelIntroWrapper"
-      class="relative px-8 pt-16 pb-32 mx-auto h-screen max-h-full panel_projects_wrapper scroll__content-softedge"
+      class="relative pt-16 pr-4 pb-32 pl-0 mx-auto h-screen max-h-full md:px-8 panel_projects_wrapper scroll__content-softedge"
     >
-      <div class="flex flex-col items-start mb-12">
+      <div class="flex flex-col items-start mb-8 md:mb-12">
         <div class="mx-4 mb-6 w-12 h-12">
           <img
             src="@img/icon-comma.svg"
             alt="comma icon"
           >
         </div>
-        <h2 class="text-3xl tracking-wider text-right text-myLightGreen -skew-x-12">
-          「 剛開始只是覺得好玩，卻愈玩愈認真 」
+        <h2 class="px-2 text-2xl tracking-wider leading-relaxed text-myLightGreen -skew-x-6 md:px-0 md:text-3xl md:leading-normal md:text-right md:-skew-x-12">
+          <span class="hidden md:inline-block">「 剛開始只是覺得好玩，卻愈玩愈認真 」</span>
+          <span class="inline-block md:hidden">剛開始只是覺得好玩，<br>卻愈玩愈認真</span>
         </h2>
       </div>
-      <div class="flex flex-col gap-4 px-8 mb-16 max-w-xl md:max-w-4xl">
+      <div class="flex flex-col gap-4 px-0 mb-16 max-w-xl md:px-8 md:max-w-4xl">
         <p class="mb-8 text-lg font-light tracking-[0.075rem] leading-8">
           因緣際會下從設計領域接觸到前端技能，覺得能夠寫出與滑鼠、鍵盤互動的網頁很好玩，逐漸對前端領域產生好奇心而開始尋找前端相關的課程學習。一開始雖然被龐大的知識量嚇到不知所措，但同時也認為這是才值得我挑戰的領域，也多虧平常學習有寫技術筆記的習慣，以及憑藉自己對新技術的好奇心，可以讓我有持續自主學習的動力。
         </p>
@@ -53,7 +54,7 @@
       <h3 class="py-2 font-semibold tracking-wider">
         我的前端學習筆記
       </h3>
-      <ul class="flex flex-col gap-3 py-2 list-disc list-inside">
+      <ul class="flex flex-col gap-6 py-2 text-sm list-disc list-inside md:gap-3 md:text-base">
         <li>
           <a
             href="https://hackmd.io/@wheat0120/ByvW0TqUF"
@@ -69,7 +70,7 @@
             target="_blank"
             class="inline-block text-white hover:text-myLightGreen"
           >
-            JavaScript - 傳值 ( by Value )、傳址 ( by Reference )、傳共享 ( by sharing )
+            JavaScript - 傳值、傳址、傳共享
           </a>
         </li>
         <li>
@@ -146,7 +147,12 @@ const panelIntroWrapper = ref(null)
 
 function gsapInit() {
   const contentScrollbar = Scrollbar.init(panelIntroWrapper.value, {
-    damping: 0.05
+    damping: 0.05,
+    plugins: {
+      disableScroll: {
+        direction: 'x',
+      }
+    }
   })
 
   ScrollTrigger.scrollerProxy(panelIntroWrapper.value, {

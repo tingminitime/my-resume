@@ -1,26 +1,26 @@
 <template>
   <div
     ref="panelExperience"
-    class="container flex relative flex-col justify-between px-8 pt-32 pb-24 mx-auto h-full md:px-12"
+    class="container flex relative flex-col justify-between pt-20 pr-2 pb-16 pl-4 mx-auto h-full md:px-12 md:pt-32 md:pb-24"
   >
     <div
       ref="panelExperienceWrapper"
-      class="relative px-8 pt-16 pb-24 h-screen max-h-full panel_projects_wrapper scroll__content-softedge"
+      class="relative pt-16 pr-4 pb-24 pl-0 h-screen max-h-full md:px-8 panel_projects_wrapper scroll__content-softedge"
     >
-      <ul class="flex before:absolute relative before:top-1/2 before:-left-8 before:z-10 flex-col gap-16 items-center mx-auto before:w-[2px] max-w-fit before:h-[calc(100%+128px)] text-myMainBg before:bg-myLightGreen/50 translate-x-8 before:-translate-y-1/2">
-        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline--first">
+      <ul class="flex relative flex-col gap-16 items-center mx-auto max-w-fit text-myMainBg translate-x-4 md:translate-x-8 experience__ulTimeline">
+        <li class="py-6 px-4 w-full max-w-[284px] bg-white rounded-xl drop-shadow-2xl md:py-8 md:px-6 md:max-w-xl experience__timeline__ball experience__timeline--first">
           <div class="mb-4">
-            <div class="flex justify-between items-end mb-2">
+            <div class="flex flex-col justify-between mb-2 md:flex-row md:items-end">
               <h2 class="text-2xl font-semibold">
                 Nodejs 助教
               </h2>
-              <span class="tracking-wide -skew-x-6">2022/04 - 2022/06</span>
+              <span class="text-sm tracking-wide -skew-x-6 md:text-base">2022/04 - 2022/06</span>
             </div>
-            <h3 class="text-blue-900">
+            <h3 class="text-sm text-blue-900 md:text-base">
               波利馬資訊科技有限公司 ( 六角學院 )
             </h3>
           </div>
-          <ul class="flex flex-col gap-1 pr-2 pl-6 mb-4 list-disc list-outside">
+          <ul class="flex flex-col gap-2 pr-2 pl-6 mb-4 leading-snug list-disc list-outside text-justify md:gap-1 md:leading-normal">
             <li>
               <span>協助學員繳交的作業進行 Code Review，並給予鼓勵及修改建議。</span>
             </li>
@@ -32,19 +32,19 @@
             <span class="text-sm"># Skills : JavaScript / Nodejs / Express / MongoDB / Mongoose / JWT</span>
           </div>
         </li>
-        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline">
+        <li class="py-8 px-6 w-full max-w-[284px] bg-white rounded-xl drop-shadow-2xl md:max-w-xl experience__timeline__ball experience__timeline">
           <div class="mb-4">
-            <div class="flex justify-between items-end mb-2">
+            <div class="flex flex-col justify-between mb-2 md:flex-row md:items-end">
               <h2 class="text-2xl font-semibold">
                 前端工程師
               </h2>
-              <span class="tracking-wide -skew-x-6">2021/12 - 2022/03</span>
+              <span class="text-sm tracking-wide -skew-x-6 md:text-base">2021/12 - 2022/03</span>
             </div>
-            <h3 class="text-blue-900">
+            <h3 class="text-sm text-blue-900 md:text-base">
               瘋帽客科技股份有限公司
             </h3>
           </div>
-          <ul class="flex flex-col gap-1 pr-2 pl-6 mb-4 list-disc list-outside">
+          <ul class="flex flex-col gap-2 pr-2 pl-6 mb-4 leading-snug list-disc list-outside text-justify md:gap-1 md:leading-normal">
             <li>
               <span>團隊協作執行系統擴充專案</span>
             </li>
@@ -62,19 +62,19 @@
             <span class="text-sm"># Skills : Vue 2 / Bootstrap 3 / ESLint / axios / FullCalendar / Moment.js / Youtube Iframe API</span>
           </div>
         </li>
-        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline">
+        <li class="py-8 px-6 w-full max-w-[284px] bg-white rounded-xl drop-shadow-2xl md:max-w-xl experience__timeline__ball experience__timeline">
           <div class="mb-4">
-            <div class="flex justify-between items-end mb-2">
+            <div class="flex flex-col justify-between mb-2 md:flex-row md:items-end">
               <h2 class="text-2xl font-semibold">
                 火箭隊培訓營 8th 前端學員
               </h2>
-              <span class="tracking-wide -skew-x-6">2021/08 - 2022/04</span>
+              <span class="text-sm tracking-wide -skew-x-6 md:text-base">2021/08 - 2022/04</span>
             </div>
-            <h3 class="text-blue-900">
+            <h3 class="text-sm text-blue-900 md:text-base">
               波利馬資訊科技有限公司 ( 六角學院 )
             </h3>
           </div>
-          <ul class="flex flex-col gap-1 pr-2 pl-6 mb-4 list-disc list-outside">
+          <ul class="flex flex-col gap-2 pr-2 pl-6 mb-4 leading-snug list-disc list-outside text-justify md:gap-1 md:leading-normal">
             <li>
               <span>初期 : 網頁切版與響應式網站規劃，培養自學能力。</span>
             </li>
@@ -92,19 +92,19 @@
             <span class="text-sm"># Skills : HTML / CSS / Sass / JavaScript / Vue / Git</span>
           </div>
         </li>
-        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline">
+        <li class="py-8 px-6 w-full max-w-[284px] bg-white rounded-xl drop-shadow-2xl md:max-w-xl experience__timeline__ball experience__timeline">
           <div class="mb-4">
-            <div class="flex justify-between items-end mb-2">
+            <div class="flex flex-col justify-between mb-2 md:flex-row md:items-end">
               <h2 class="text-2xl font-semibold">
                 美編人員 / 平面設計
               </h2>
-              <span class="tracking-wide -skew-x-6">2018/01 - 2018/06</span>
+              <span class="text-sm tracking-wide -skew-x-6 md:text-base">2018/01 - 2018/06</span>
             </div>
-            <h3 class="text-blue-900">
+            <h3 class="text-sm text-blue-900 md:text-base">
               廷媛設計有限公司
             </h3>
           </div>
-          <ul class="flex flex-col gap-1 pr-2 pl-6 mb-4 list-disc list-outside">
+          <ul class="flex flex-col gap-2 pr-2 pl-6 mb-4 leading-snug list-disc list-outside text-justify md:gap-1 md:leading-normal">
             <li>
               <span>負責長榮大學文宣品平面設計及編排。</span>
             </li>
@@ -113,19 +113,19 @@
             <span class="text-sm"># Skills : Adobe Illustrator / Adobe Photoshop / Adobe InDesign</span>
           </div>
         </li>
-        <li class="py-8 px-6 w-full max-w-xl bg-white rounded-xl drop-shadow-2xl experience__timeline__ball experience__timeline--last">
+        <li class="py-8 px-6 w-full max-w-[284px] bg-white rounded-xl drop-shadow-2xl md:max-w-xl experience__timeline__ball experience__timeline--last">
           <div class="mb-4">
-            <div class="flex justify-between items-end mb-2">
+            <div class="flex flex-col justify-between mb-2 md:flex-row md:items-end">
               <h2 class="text-2xl font-semibold">
                 特別助理兼管家
               </h2>
-              <span class="tracking-wide -skew-x-6">2017/03 - 2021/09</span>
+              <span class="text-sm tracking-wide -skew-x-6 md:text-base">2017/03 - 2021/09</span>
             </div>
-            <h3 class="text-blue-900">
+            <h3 class="text-sm text-blue-900 md:text-base">
               智富門資產管理顧問有限公司
             </h3>
           </div>
-          <ul class="flex flex-col gap-1 pr-2 pl-6 mb-4 list-disc list-outside">
+          <ul class="flex flex-col gap-2 pr-2 pl-6 mb-4 leading-snug list-disc list-outside text-justify md:gap-1 md:leading-normal">
             <li>
               <span>特別助理 : 與客戶介紹案源，協助主管行政文書後勤工作。</span>
             </li>
