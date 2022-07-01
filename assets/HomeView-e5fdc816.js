@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-42e7d8dc.js";import{r,o as s,c as a,a as n}from"./index-4af490eb.js";const o={class:"min-h-screen bg-myMainBg"};var t=e({},[["render",function(e,t){const i=r("router-view");return s(),a("div",o,[n(i)])}]]);export{t as default};
