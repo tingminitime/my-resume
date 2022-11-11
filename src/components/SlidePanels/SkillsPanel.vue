@@ -16,6 +16,7 @@
             <ul class="flex flex-col gap-4 py-2 tracking-wide">
               <li>．Vue 2 / Vue 3</li>
               <li>．使用 Vite 環境建置及編譯專案</li>
+              <li>．Nuxt.js SSR 開發</li>
               <li>．Options API / Composition API</li>
               <li>．Components 元件管理</li>
               <li>．Vue Router 規劃 SPA 網站</li>
@@ -62,7 +63,7 @@
             <ul class="flex flex-col gap-4 py-2 tracking-wide">
               <li>．Git Command Line</li>
               <li>．VSCode Source Control</li>
-              <li>．GitHub</li>
+              <li>．GitHub / GitLab</li>
             </ul>
           </div>
         </div>
